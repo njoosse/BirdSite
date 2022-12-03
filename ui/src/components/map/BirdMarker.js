@@ -10,6 +10,12 @@ export class BirdMarker extends React.Component {
         const { geometry, properties } = bird;
         const { coordinates } = geometry;
         const { name, imagePath } = properties;
+
+        const popupImage = {
+            width: '242px',
+            height: '162px',
+        }
+
         return (
             <CircleMarker
                 center={[coordinates[1], coordinates[0]]}
@@ -20,7 +26,7 @@ export class BirdMarker extends React.Component {
             >
                 <Popup>
                     <div>
-                        <img src={require('../../assets/birdPhotos/'+imagePath)} alt={name} />
+                        <img style={popupImage} src={require('../../assets/birdPhotos/'+imagePath)} alt={name} />
                         <p>{name}</p>
                     </div>
                 </Popup>
