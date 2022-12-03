@@ -18,7 +18,7 @@ export const birdData = {
             },
             "properties": {
                 "name": "Common Merganser",
-                "imagePath": "CommonMerganser.jpg"
+                "imagePath": "CommonMerganser.JPG"
             }
         }
     ]
