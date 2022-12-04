@@ -20,6 +20,16 @@ export class LeafletMap extends React.Component {
         };
     }
 
+    getBirdTable() {
+        fetch("http://localhost:9000/birds")
+          .then(res => res.json())
+          .then(res => this.setState({'birdData': res}));
+      }
+      
+      componentDidMount() {
+        this.getBirdTable();
+      }
+
     render() {
         return (
             <MapContainer
