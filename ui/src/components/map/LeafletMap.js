@@ -11,16 +11,25 @@ import './LeafletMap.css';
 import 'leaflet/dist/leaflet.css';
 
 export class LeafletMap extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            position: props.startPosition,
+            zoom: props.startZoom,
+        };
+    }
+
     render() {
         return (
             <MapContainer
                 className="MapContainer"
-                center={this.props.position}
-                zoom={17}
+                center={this.state.position}
+                zoom={this.state.zoom}
                 scrollWheelZoom={false}
             >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                {birdData.features.map((feature, index) => {
+                {this.state.birdData.features.map((feature, index) => {
                     return(<BirdMarker bird={feature} key={index}/>);
                 })}
             </MapContainer>
