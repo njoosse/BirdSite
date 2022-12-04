@@ -1,7 +1,4 @@
-import {
-    CircleMarker,
-    Popup,
-} from 'react-leaflet';
+import { CircleMarker, Popup } from 'react-leaflet';
 import React from 'react';
 
 export class BirdMarker extends React.Component {
@@ -9,12 +6,12 @@ export class BirdMarker extends React.Component {
         const { bird } = this.props;
         const { geometry, properties } = bird;
         const { coordinates } = geometry;
-        const { name, imagePath } = properties;
+        const { name } = properties;
 
         const popupImage = {
             width: '242px',
             height: '162px',
-        }
+        };
 
         return (
             <CircleMarker
@@ -26,7 +23,7 @@ export class BirdMarker extends React.Component {
             >
                 <Popup>
                     <div>
-                        <img style={popupImage} src={require('../../assets/birdPhotos/'+imagePath)} alt={name} />
+                        <img style={popupImage} src={''} alt={name} />
                         <p>{name}</p>
                     </div>
                 </Popup>
