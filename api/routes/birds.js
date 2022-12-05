@@ -18,12 +18,13 @@ const db = pgp(
 );
 
 router.get("/", function (req, res, next) {
-  db.any('SELECT latitude, longitude, name FROM "birdApp"."birdPictures"')
+  db.any('SELECT id, latitude, longitude, name FROM "birdApp"."birdPictures"')
     .then((data) => {
       console.log(typeof data);
       let geoJson = { features: [] };
       data.forEach((row) => {
         geoJson.features.push({
+          id: row.id,
           type: "Feature",
           geometry: {
             type: "Point",
@@ -38,7 +39,7 @@ router.get("/", function (req, res, next) {
     })
     .catch((error) => {
       console.log(error);
-      res.send(error);
+      res.send({ features: [] });
     });
 });
 

@@ -34,8 +34,8 @@ export class LeafletMap extends React.Component {
                 scrollWheelZoom={false}
             >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                {this.state.birdData.features.map((feature, index) => {
-                    return <BirdMarker bird={feature} key={index} />;
+                {this.state.birdData.features.map((feature) => {
+                    return <BirdMarker bird={feature} key={feature.id} />;
                 })}
             </MapContainer>
         );

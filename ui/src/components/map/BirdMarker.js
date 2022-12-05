@@ -4,7 +4,7 @@ import React from 'react';
 export class BirdMarker extends React.Component {
     render() {
         const { bird } = this.props;
-        const { geometry, properties } = bird;
+        const { geometry, properties, id } = bird;
         const { coordinates } = geometry;
         const { name } = properties;
 
