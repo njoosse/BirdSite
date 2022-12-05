@@ -20,7 +20,6 @@ const db = pgp(
 router.get("/", function (req, res, next) {
   db.any('SELECT id, latitude, longitude, name FROM "birdApp"."birdPictures"')
     .then((data) => {
-      console.log(typeof data);
       let geoJson = { features: [] };
       data.forEach((row) => {
         geoJson.features.push({
@@ -40,6 +39,25 @@ router.get("/", function (req, res, next) {
     .catch((error) => {
       console.log(error);
       res.send({ features: [] });
+    });
+});
+
+router.get("/image/:id", function (req, res, next) {
+  db.one(
+    `SELECT encode(image, 'base64') AS b64Img FROM "birdApp"."birdPictures" WHERE id = $1`,
+    [req.params.id]
+  )
+    .then((data) => {
+      var img = Buffer.from(data.b64img, "base64");
+      res
+        .set({
+          "Content-Type": "image/jpeg",
+          "Content-Length": img.length,
+        })
+        .send(img);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 });
 

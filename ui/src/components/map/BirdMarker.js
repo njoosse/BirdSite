@@ -13,6 +13,7 @@ export class BirdMarker extends React.Component {
             height: '162px',
         };
 
+        // TODO: only load image when popup is opened
         return (
             <CircleMarker
                 center={[coordinates[1], coordinates[0]]}
@@ -22,10 +23,12 @@ export class BirdMarker extends React.Component {
                 fillColor="yellow"
             >
                 <Popup>
-                    <div>
-                        <img style={popupImage} src={''} alt={name} />
-                        <p>{name}</p>
-                    </div>
+                    <img
+                        style={popupImage}
+                        src={new URL('http://localhost:9000/birds/image/' + id)}
+                        alt={name}
+                    />
+                    <p>{name}</p>
                 </Popup>
             </CircleMarker>
         );
