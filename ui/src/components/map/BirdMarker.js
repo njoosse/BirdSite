@@ -1,4 +1,5 @@
 import { CircleMarker, Popup } from 'react-leaflet';
+import { ImageWithHover } from '../common/ImageWithHover';
 import React from 'react';
 
 export class BirdMarker extends React.Component {
@@ -8,12 +9,6 @@ export class BirdMarker extends React.Component {
         const { coordinates } = geometry;
         const { name } = properties;
 
-        const popupImage = {
-            width: '242px',
-            height: '162px',
-        };
-
-        // TODO: only load image when popup is opened
         return (
             <CircleMarker
                 center={[coordinates[1], coordinates[0]]}
@@ -23,10 +18,9 @@ export class BirdMarker extends React.Component {
                 fillColor="yellow"
             >
                 <Popup>
-                    <img
-                        style={popupImage}
+                    <ImageWithHover
                         src={new URL('http://localhost:9000/birds/image/' + id)}
-                        alt={name}
+                        altText={name}
                     />
                     <p>{name}</p>
                 </Popup>

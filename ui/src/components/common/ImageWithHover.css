@@ -1,0 +1,36 @@
+#container {
+    position: relative;
+    height: 162px;
+    width: 242px;
+}
+
+#image,
+#hoverButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 0;
+    padding: 0;
+}
+
+#image {
+    z-index: 1;
+}
+
+#hoverButton {
+    /* background-color: transparent; */
+    opacity: 0;
+    z-index: 10;
+}
+
+#hoverButton:hover {
+    opacity: 0.5;
+    background-color: lightgrey;
+}
+
+#expandIcon {
+    height: 50px;
+    width: 50px;
+}
