@@ -34,3 +34,25 @@
     height: 50px;
     width: 50px;
 }
+
+#imageDialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 350px;
+    width: 500px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+#modalImage {
+    position: relative;
+    height: 324px;
+    width: 484px;
+    top: 10%;
+    left: 10%;
+    /* transform: translate(-50%, -50%); */
+}

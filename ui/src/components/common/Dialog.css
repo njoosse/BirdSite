@@ -1,0 +1,14 @@
+.dialogTitle {
+    display: flex;
+    justify-content: center;
+    font-size: 24pt;
+    font-weight: normal;
+}
+
+#img {
+    margin-bottom: -4px;
+}
+
+#dialogFrame {
+    padding: 0px 4px 4px 4px;
+}
