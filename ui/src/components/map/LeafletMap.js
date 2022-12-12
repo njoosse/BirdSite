@@ -1,9 +1,11 @@
 import React from 'react';
+import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { BirdMarker } from './BirdMarker';
 
 import './LeafletMap.css';
 import 'leaflet/dist/leaflet.css';
+import '@changey/react-leaflet-markercluster/dist/styles.min.css';
 
 export class LeafletMap extends React.Component {
     constructor(props) {
@@ -60,9 +62,11 @@ export class LeafletMap extends React.Component {
                 scrollWheelZoom={true}
             >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                {this.state.birdData.features.map((feature) => {
-                    return <BirdMarker bird={feature} key={feature.id} />;
-                })}
+                <MarkerClusterGroup>
+                    {this.state.birdData.features.map((feature) => {
+                        return <BirdMarker bird={feature} key={feature.id} />;
+                    })}
+                </MarkerClusterGroup>
             </MapContainer>
         );
     }
