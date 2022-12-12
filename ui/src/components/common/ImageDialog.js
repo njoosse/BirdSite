@@ -2,9 +2,9 @@ import * as React from 'react';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 
-import './Dialog.css';
+import './ImageDialog.css';
 
-export class CustomDialog extends React.Component {
+export class ImageDialog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -12,7 +12,12 @@ export class CustomDialog extends React.Component {
 
     render() {
         return (
-            <Dialog open={this.props.open} onClose={this.props.onClose}>
+            <Dialog
+                id="dialogWindow"
+                open={this.props.open}
+                onClose={this.props.onClose}
+                maxWidth={false}
+            >
                 <div id="dialogFrame">
                     <DialogTitle class="dialogTitle">
                         {this.props.title}

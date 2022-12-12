@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'; // <-- import styles to be used
-import { CustomDialog } from './Dialog';
+import { ImageDialog } from './ImageDialog';
 
 import './ImageWithHover.css';
 
@@ -24,13 +24,13 @@ export class ImageWithHover extends React.Component {
 
         return (
             <div id="container">
-                <CustomDialog
+                <ImageDialog
                     id="imageDialog"
                     open={this.state.isModalOpen}
                     onClose={closeImageModal}
                     title={altText}
                     imgSrc={src}
-                ></CustomDialog>
+                ></ImageDialog>
                 <img id="image" src={src} alt={altText} />
                 <button id="hoverButton" onClick={openImageModal}>
                     <FontAwesomeIcon
