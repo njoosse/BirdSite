@@ -2,9 +2,9 @@
 leaflet webmap that contains bird sightings and pictures
 
 table structure in PostGres is
-| id | latitude | longitude | name | image |
-|---|---|---|---|---|
-| | | | | |
+| id | latitude | longitude | name | image | timestamp | 
+|---|---|---|---|---|---|
+| | | | | | |
 
 Create Script
 ```CREATE TABLE IF NOT EXISTS public."birdPictures"
@@ -14,5 +14,6 @@ Create Script
     longitude real,
     name text COLLATE pg_catalog."default",
     image bytea,
+    "timestamp" timestamp without time zone
     CONSTRAINT "birdPictures_pkey" PRIMARY KEY (id)
 )
