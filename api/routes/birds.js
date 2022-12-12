@@ -18,7 +18,9 @@ const db = pgp(
 );
 
 router.get("/", function (req, res, next) {
-  db.any('SELECT id, latitude, longitude, name FROM "birdApp"."birdPictures"')
+  db.any(
+    'SELECT id, latitude, longitude, name, timestamp FROM "birdApp"."birdPictures"'
+  )
     .then((data) => {
       let geoJson = { features: [] };
       data.forEach((row) => {
@@ -31,6 +33,8 @@ router.get("/", function (req, res, next) {
           },
           properties: {
             name: row.name,
+            // leaving this as the integer, more flexible in the UI
+            taken: new Date(row.timestamp).getTime() / 1000,
           },
         });
       });
