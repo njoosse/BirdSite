@@ -19,7 +19,7 @@ export class ImageDialog extends React.Component {
                 maxWidth={false}
             >
                 <div id="dialogFrame">
-                    <DialogTitle class="dialogTitle">
+                    <DialogTitle className="dialogTitle">
                         {this.props.title}
                     </DialogTitle>
                     <img
